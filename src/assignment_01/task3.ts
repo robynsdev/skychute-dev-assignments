@@ -1,9 +1,9 @@
-function isValid(string: string): boolean {
+function isValid(input: string): boolean {
   let brackets: string = "()[]{}";
   let indexes: number[] = [];
 
   // get index of first character
-  for (let char of string) {
+  for (let char of input) {
     let charIdx: number = brackets.indexOf(char);
 
     // if even(opening bracket), push corresponding closing idx onto indexes
