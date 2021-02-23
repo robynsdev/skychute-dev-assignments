@@ -1,0 +1,26 @@
+{
+  "name": "dev-assignments",
+  "version": "1.0.0",
+  "description": "Exercises to practise typescript",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.149",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skychute/dev-assignments.git"
+  },
+  "author": "Riccardo Carzaniga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skychute/dev-assignments/issues"
+  },
+  "homepage": "https://github.com/Skychute/dev-assignments#readme"
+}
