@@ -1,16 +1,24 @@
-function validate(input: any) {
-  let tmp = 0;
-  for (let c of input) {
-    if (c === "(") tmp++;
-    else if (c === ")" && --tmp < 0) return false; // Unexpected  ')'
+function isValid(string: string): boolean {
+  let brackets: string = "()[]{}";
+  let indexes: number[] = [];
+
+  // get index of first character
+  for (let char of string) {
+    let charIdx: number = brackets.indexOf(char);
+
+    // if even(opening bracket), push corresponding closing idx onto indexes
+    // if odd(closing bracket), pop indexes
+    // if pop doesn't match charIdx, return false
+    if (charIdx % 2 === 0) {
+      indexes.push(charIdx + 1);
+    } else {
+      if (indexes.pop() !== charIdx) return false;
+    }
   }
-  return tmp === 0; // False if unbalanced
+  // at end of iteration, return false if indexes not empty & true if empty
+  return indexes.length === 0;
 }
 
-const goodBrackets = "(((())(())))";
-const badBrackets = "(()())))";
-const veryBadBrackets = "(()())()))";
-
-console.log(validate(goodBrackets));
-console.log(validate(badBrackets));
-console.log(validate(veryBadBrackets));
+isValid("([])");
+isValid("([{}()]())");
+isValid("())");
