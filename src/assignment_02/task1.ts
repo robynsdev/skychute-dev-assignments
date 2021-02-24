@@ -1,4 +1,7 @@
-function isSubSequence(sequence: number[], targetNum: number) {
+function isSubSequence(
+  sequence: number[],
+  targetNum: number
+): number[] | string {
   // sliding window variable algorithm
   let startIdx: number = 0;
   let total: number = 0;
