@@ -1,22 +1,20 @@
 function isSubSequence(sequence: number[], targetNum: number) {
-  // for each element in sequence check if start of subsequence
-  for (const i of sequence.keys()) {
-    let total: number = 0;
-    // if subsequent elements total targetNum
-    // return l & r index if there is a sub sequence
-    // break if total is greater than targetNum
-    for (let j = i; j < sequence.length; j++) {
-      total += sequence[j];
-      if (total === targetNum) {
-        console.log([i, j]);
-        return [i, j];
-      } else if (total > targetNum) {
-        break;
-      }
+  // sliding window variable algorithm
+  let startIdx: number = 0;
+  let total: number = 0;
+
+  for (let endIdx = 0; endIdx < sequence.length; endIdx++) {
+    total += sequence[endIdx];
+    while (total > targetNum) {
+      total -= sequence[startIdx];
+      startIdx++;
+    }
+    if (total === targetNum) {
+      return [startIdx, endIdx];
     }
   }
-  console.log("Sub sequence not found");
+  return "Subsequence not found";
 }
 
-isSubSequence([2, 5, 7, 8, 3], 18);
-isSubSequence([2, 5, 7, 8], 18);
+isSubSequence([2, 5, 7, 8, 3], 18); // [ 2, 4]
+isSubSequence([2, 5, 7, 8], 18); // "Subsequence not found"
