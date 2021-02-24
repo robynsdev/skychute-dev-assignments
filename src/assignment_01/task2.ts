@@ -21,7 +21,10 @@ class Queue {
     this.nodes[this.nodes.length] = value;
   }
 
-  pop(): number {
+  pop(): number | undefined {
+    if (this.nodes.length === 0) {
+      return undefined;
+    }
     // maxAry
     if (this.maxAry[this.maxLow] === this.nodes[this.lowest]) {
       delete this.maxAry[this.maxLow];

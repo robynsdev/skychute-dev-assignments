@@ -19,17 +19,22 @@ class Stack {
     this.nodes[this.nodes.length] = value;
   }
 
-  pop(): number {
+  pop(): number | undefined {
     // maxAry
-    if (
-      this.maxAry[this.maxAry.length - 1] === this.nodes[this.nodes.length - 1]
-    ) {
-      this.maxAry.length = this.maxAry.length - 1;
+    try {
+      if (
+        this.maxAry[this.maxAry.length - 1] ===
+        this.nodes[this.nodes.length - 1]
+      ) {
+        this.maxAry.length = this.maxAry.length - 1;
+      }
+      // nodes
+      let pop: number = this.nodes[this.nodes.length - 1];
+      this.nodes.length = this.nodes.length - 1;
+      return pop;
+    } catch {
+      return undefined;
     }
-    // nodes
-    let pop: number = this.nodes[this.nodes.length - 1];
-    this.nodes.length = this.nodes.length - 1;
-    return pop;
   }
 
   max(): number {
