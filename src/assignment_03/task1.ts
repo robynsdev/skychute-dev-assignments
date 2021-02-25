@@ -1,9 +1,9 @@
 function sqrt(n: number): number {
+  const decimal: number = 6;
   let l: number = 0;
   let r: number = n;
   let mid: number | null = null;
   let ans: number = 0;
-  let decimal: number = 6;
 
   if (n === 0 || n === 1) {
     return n;
