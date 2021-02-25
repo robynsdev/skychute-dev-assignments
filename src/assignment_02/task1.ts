@@ -13,11 +13,11 @@ function isSubSequence(
       l++;
     }
     if (total === targetNum) {
-      return [l, r];
+      return [l + 1, r + 1];
     }
   }
   return "Subsequence not found";
 }
 
-isSubSequence([2, 5, 7, 8, 3], 18); // [2, 4]
+isSubSequence([2, 5, 7, 8, 3], 18); // [3, 5]
 isSubSequence([2, 5, 7, 8], 18); // "Subsequence not found"
