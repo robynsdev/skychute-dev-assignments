@@ -23,3 +23,4 @@ function maxSubSequence(sequence: number[]): number[] {
 
 maxSubSequence([-2, 2, 5, -11, 6]); //[1, 2]
 maxSubSequence([-2, 2, 5, -11, 6, 20]); //[4, 5]
+maxSubSequence([-2, 2, 5, -11, 6, 20, -1, 5]); //[4, 5]
