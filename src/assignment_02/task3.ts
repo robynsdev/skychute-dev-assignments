@@ -1,4 +1,4 @@
-function maxPossibleNum(n: number, k: number) {
+function maxPossibleNum(n: number, k: number): number {
   const str: string[] = String(n).split(".");
   let stack: string[] | null = null;
   let digits: number = k;
@@ -13,11 +13,10 @@ function maxPossibleNum(n: number, k: number) {
     stack = removeDigitsHelper(str[0], digits);
     maximum = Number(stack.join(""));
   }
-
   return maximum;
 }
 
-function removeDigitsHelper(str: string, digits: number) {
+function removeDigitsHelper(str: string, digits: number): string[] {
   let stack: string[] = [];
 
   for (let c of str) {
