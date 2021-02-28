@@ -41,3 +41,10 @@ class Stack {
     return this.maxAry[this.maxAry.length - 1];
   }
 }
+
+let stack = new Stack();
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.pop(); // 2
+stack.max(); // 3

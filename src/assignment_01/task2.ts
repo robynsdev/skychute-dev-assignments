@@ -41,3 +41,10 @@ class Queue {
     return this.maxAry[this.maxLow];
   }
 }
+
+let queue = new Queue();
+stack.push(1);
+stack.push(3);
+stack.push(2);
+stack.pop(); // 1
+stack.max(); // 3
