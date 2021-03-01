@@ -44,7 +44,6 @@ function lineSegments(
     maxIntersect: maxIntersect,
     maxlength: maxLength,
   };
-  console.log(ans);
   return ans;
 }
 
