@@ -1,4 +1,4 @@
-function sqrt(n: number) {
+function sqrt(n: number): string {
   const decimal: number = 6;
   let num: number = Math.abs(n);
   let l: number = 0;
@@ -8,7 +8,8 @@ function sqrt(n: number) {
   let strAns: string = "";
 
   if (n === 0 || n === 1) {
-    return n;
+    strAns = String(n);
+    return strAns;
   }
 
   // check integral using binary search

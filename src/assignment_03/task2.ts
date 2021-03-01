@@ -10,8 +10,8 @@ function lineSegments(
 ): { maxIntersect: number; maxlength: number } {
   let points: [number, boolean][] = [];
   let counter: number = 0;
-  let result: number = 0;
-  let maxIdx: number = 0; // index of part a answer
+  let len: number = 0;
+  let maxIdx: number[] = [0, 0]; // index of part a answer
   let maxIntersect: number = 0; // part a answer
   let maxLength: number = 0; // part b answer
   let ans: { maxIntersect: number; maxlength: number } = {
@@ -22,28 +22,30 @@ function lineSegments(
   points = buildPoints(segments);
   points = sortPoints(points);
 
-  // Klee's algorithm
+  // Altered Klee's algorithm
   for (let i = 0; i < points.length; i++) {
     if (counter > 0) {
-      result += points[i][0] - points[i - 1][0];
-      if (counter > maxIdx) {
-        maxIdx = i - 1;
-      }
+      len += points[i][0] - points[i - 1][0];
     }
     points[i][1] ? (counter -= 1) : (counter += 1);
-    if (counter === 0) {
-      if (result > maxLength) {
-        maxLength = result;
+    if (counter > maxIdx[0]) {
+      maxIdx[0] = counter;
+      maxIdx[1] = i;
+    } else if (counter === 0) {
+      if (len > maxLength) {
+        maxLength = len;
       }
-      result = 0;
+      len = 0;
     }
   }
 
-  maxIntersect = points[maxIdx][0];
+  console.log(points);
+  maxIntersect = points[maxIdx[1]][0];
   ans = {
     maxIntersect: maxIntersect,
     maxlength: maxLength,
   };
+  console.log(ans);
   return ans;
 }
 
@@ -67,10 +69,28 @@ function sortPoints(points: [number, boolean][]): [number, boolean][] {
     if (a[0] < b[0]) {
       return -1;
     }
+    if (a[0] === b[0] && a[1] === false) {
+      return -1;
+    }
     return 0;
   });
   return points;
 }
+
+lineSegments([
+  [1, 2],
+  [4, 6],
+  [5, 7],
+]);
+// { maxIntersect: 5, maxlength: 3 }
+
+lineSegments([
+  [1, 2],
+  [3, 3.5],
+  [4, 6],
+  [5, 7],
+]);
+// { maxIntersect: 5, maxlength: 3 }
 
 lineSegments([
   [0, 7],
