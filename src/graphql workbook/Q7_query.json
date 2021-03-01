@@ -1,0 +1,5 @@
+mutation MyMutation($id: uuid!) {
+  delete_agent_by_pk(id: $id) {
+    id
+  }
+}

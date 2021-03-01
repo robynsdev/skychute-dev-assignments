@@ -1,0 +1,19 @@
+query projectBuildingListinglist {
+  project {
+    id
+    name
+    buildings {
+      id
+      name
+      listings {
+        id
+        name
+        aspect
+        storage
+        internal
+        external
+        state
+      }
+    }
+  }
+}

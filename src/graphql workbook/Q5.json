@@ -1,0 +1,5 @@
+mutation MyMutation {
+  insert_agent_one(object: {name: "robyn", email: "robyn@robyn.com"}) {
+    id
+  }
+}

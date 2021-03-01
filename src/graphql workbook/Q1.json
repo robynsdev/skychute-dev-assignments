@@ -1,0 +1,11 @@
+query listingList {
+  listing {
+    id
+    name
+    aspect
+    storage
+    internal
+    external
+    state
+  }
+}

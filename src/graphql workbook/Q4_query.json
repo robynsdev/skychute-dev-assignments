@@ -1,0 +1,8 @@
+query listinglist($state: String, $external: numeric, $internal: numeric) {
+  listing(where: {state: {_eq: $state}, external: {_gte: $external}, internal: {_lte: $internal}}) {
+    id
+    state
+    external
+    internal
+  }
+}
