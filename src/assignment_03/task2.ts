@@ -39,7 +39,6 @@ function lineSegments(
     }
   }
 
-  console.log(points);
   maxIntersect = points[maxIdx[1]][0];
   ans = {
     maxIntersect: maxIntersect,
@@ -54,8 +53,13 @@ function buildPoints(segments: number[][]): [number, boolean][] {
   // change data structure to array of tuple of segment points
   // start point is paired with false, end point is paired with true.
   for (let segment of segments) {
-    points.push([segment[0], false]);
-    points.push([segment[1], true]);
+    if (segment[1] < segment[0]) {
+      points.push([segment[1], false]);
+      points.push([segment[0], true]);
+    } else {
+      points.push([segment[0], false]);
+      points.push([segment[1], true]);
+    }
   }
   return points;
 }
@@ -78,15 +82,14 @@ function sortPoints(points: [number, boolean][]): [number, boolean][] {
 }
 
 lineSegments([
-  [1, 2],
+  [2, 1],
   [4, 6],
-  [5, 7],
+  [7, 5],
 ]);
 // { maxIntersect: 5, maxlength: 3 }
 
 lineSegments([
   [1, 2],
-  [3, 3.5],
   [4, 6],
   [5, 7],
 ]);
@@ -98,13 +101,6 @@ lineSegments([
   [1, 3],
 ]);
 // { maxIntersect: 1, maxlength: 7 }
-
-lineSegments([
-  [4, 6],
-  [3, 5],
-  [7, 9],
-]);
-// { maxIntersect: 4, maxlength: 3 }
 
 lineSegments([
   [3, 6],
