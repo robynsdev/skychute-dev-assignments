@@ -6,7 +6,7 @@
 // AIM: length of longest joined segment
 
 function lineSegments(
-  segments: number[][]
+  segments: [number, number][]
 ): { maxIntersect: number; maxlength: number } {
   let points: [number, boolean][] = [];
   let counter: number = 0;
